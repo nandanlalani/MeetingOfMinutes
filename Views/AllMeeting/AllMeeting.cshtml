@@ -1,0 +1,243 @@
+﻿@{
+    ViewData["Title"] = "Meetings Management";
+}
+
+<div class="pagetitle d-flex justify-content-between align-items-start align-items-md-center gap-3">
+    <div>
+        <h1>Meetings Management</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Dashboard">Home</a></li>
+                <li class="breadcrumb-item active">Meetings Management</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="d-flex gap-2 flex-wrap">
+        <a class="btn btn-primary d-flex align-items-center" asp-controller="ScheduleMeeting" asp-action="ScheduleMeeting">
+            <i class="bi bi-plus-lg me-2"></i> Schedule Meeting
+        </a>
+        <a class="btn btn-success d-flex align-items-center" href="#">
+            <i class="bi bi-download me-2"></i> Export
+        </a>
+    </div>
+</div>
+
+<section class="section mt-3">
+    <div class="row">
+        <div class="col-12">
+
+            <!-- Search & Filters -->
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-white border-0 px-4 pt-4 pb-2">
+                    <div class="fw-semibold text-secondary">Search &amp; Filters</div>
+                </div>
+
+                <div class="card-body px-4 pb-4">
+                    <form class="row g-3">
+                        <!-- Row 1 -->
+                        <div class="col-12 col-md-3">
+                            <label class="form-label fw-semibold">Meeting Type</label>
+                            <select class="form-select">
+                                <option selected>All Types</option>
+                                <option>Board Meeting</option>
+                                <option>Brainstorming</option>
+                                <option>Planning</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <label class="form-label fw-semibold">Department</label>
+                            <select class="form-select">
+                                <option selected>All Departments</option>
+                                <option>Marketing</option>
+                                <option>Customer Service</option>
+                                <option>Finance</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <label class="form-label fw-semibold">Venue</label>
+                            <select class="form-select">
+                                <option selected>All Venues</option>
+                                <option>Auditorium</option>
+                                <option>Training Room 2</option>
+                                <option>Virtual Meeting - Zoom</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <label class="form-label fw-semibold">Search</label>
+                            <input type="text" class="form-control" placeholder="Search meetings..." />
+                        </div>
+
+                        <!-- Row 2 -->
+                        <div class="col-12 col-md-3">
+                            <label class="form-label fw-semibold">Start Date</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" />
+                                <span class="input-group-text bg-white">
+                                    <i class="bi bi-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <label class="form-label fw-semibold">End Date</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" />
+                                <span class="input-group-text bg-white">
+                                    <i class="bi bi-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 d-flex gap-2 align-items-end">
+                            <button type="button" class="btn btn-primary">
+                                <i class="bi bi-funnel me-1"></i> Apply Filters
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Scheduled Meetings -->
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <div class="card-header bg-white border-0 px-4 pt-4 pb-2">
+                    <div class="fw-semibold text-secondary">Scheduled Meetings</div>
+                </div>
+
+                <div class="card-body px-4 pb-4">
+
+                    <!-- Datatable top controls (visual only, like screenshot) -->
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <select class="form-select form-select-sm" style="width: 90px;">
+                                <option selected>10</option>
+                                <option>25</option>
+                                <option>50</option>
+                                <option>100</option>
+                            </select>
+                            <span class="text-muted">entries per page</span>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-2">
+                            <input class="form-control form-control-sm" style="width: 220px;" placeholder="Search..." />
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="text-muted fw-semibold text-nowrap">#</th>
+                                    <th class="text-muted fw-semibold text-nowrap">Date &amp; Time</th>
+                                    <th class="text-muted fw-semibold text-nowrap">Meeting Type</th>
+                                    <th class="text-muted fw-semibold">Description</th>
+                                    <th class="text-muted fw-semibold text-nowrap">Department</th>
+                                    <th class="text-muted fw-semibold text-nowrap">Venue</th>
+                                    <th class="text-muted fw-semibold text-nowrap">Status</th>
+                                    <th class="text-muted fw-semibold text-nowrap">Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td class="text-nowrap">14</td>
+                                    <td class="text-nowrap">
+                                        <div class="fw-semibold">Nov 23, 2025</div>
+                                        <div class="text-muted small">13:05</div>
+                                    </td>
+                                    <td class="text-nowrap">
+                                        <span class="badge bg-primary">Board Meeting</span>
+                                    </td>
+                                    <td>No description</td>
+                                    <td class="text-nowrap">Customer Service</td>
+                                    <td class="text-nowrap">Auditorium</td>
+                                    <td class="text-nowrap">
+                                        <span class="badge bg-secondary">Completed</span>
+                                    </td>
+                                    <td class="text-nowrap">
+                                        <a class="btn btn-sm btn-outline-primary me-1" href="#" title="View">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a class="btn btn-sm btn-outline-success me-1" href="#" title="Edit">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a class="btn btn-sm btn-outline-danger" href="#" title="Delete">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr class="table-secondary bg-opacity-25">
+                                    <td class="text-nowrap">13</td>
+                                    <td class="text-nowrap">
+                                        <div class="fw-semibold">Nov 21, 2025</div>
+                                        <div class="text-muted small">23:05</div>
+                                    </td>
+                                    <td class="text-nowrap">
+                                        <span class="badge bg-primary">Board Meeting</span>
+                                    </td>
+                                    <td>Quarterly review</td>
+                                    <td class="text-nowrap">Customer Service</td>
+                                    <td class="text-nowrap">Virtual Meeting - Zoom</td>
+                                    <td class="text-nowrap">
+                                        <span class="badge bg-secondary">Completed</span>
+                                    </td>
+                                    <td class="text-nowrap">
+                                        <a class="btn btn-sm btn-outline-primary me-1" href="#" title="View">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a class="btn btn-sm btn-outline-success me-1" href="#" title="Edit">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a class="btn btn-sm btn-outline-danger" href="#" title="Delete">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-nowrap">10</td>
+                                    <td class="text-nowrap">
+                                        <div class="fw-semibold">Nov 27, 2025</div>
+                                        <div class="text-muted small">10:45</div>
+                                    </td>
+                                    <td class="text-nowrap">
+                                        <span class="badge bg-info text-dark">Brainstorming</span>
+                                    </td>
+                                    <td>Creative Brainstorming – Next Campaign Ideas</td>
+                                    <td class="text-nowrap">Marketing</td>
+                                    <td class="text-nowrap">Training Room 2</td>
+                                    <td class="text-nowrap">
+                                        <span class="badge bg-success">Upcoming</span>
+                                    </td>
+                                    <td class="text-nowrap">
+                                        <a class="btn btn-sm btn-outline-primary me-1" href="#" title="View">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a class="btn btn-sm btn-outline-success me-1" href="#" title="Edit">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a class="btn btn-sm btn-outline-danger" href="#" title="Delete">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Datatable bottom info (visual, like screenshot) -->
+                    <div class="pt-3 text-muted">
+                        Showing 1 to 3 of 3 entries
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

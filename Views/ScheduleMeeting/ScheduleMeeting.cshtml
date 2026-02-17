@@ -1,0 +1,107 @@
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Schedule New Meeting";
+}
+
+<div class="pagetitle">
+    <h1>Schedule New Meeting</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/AllMeeting/AllMeeting">All Meetings</a></li>
+            <li class="breadcrumb-item active">Schedule New Meeting</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section">
+    <div class="row">
+        <div class="col-12">
+            <div class="card" style="border-radius: 14px; box-shadow: 0 8px 24px rgba(17, 24, 39, 0.08);">
+                <div class="card-header" style="border-top-left-radius: 14px; border-top-right-radius: 14px; background: linear-gradient(90deg, #635bff 0%, #00c2ff 100%); color: #fff;">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-calendar-event"></i>
+                        <span class="fw-semibold">Schedule New Meeting</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form id="scheduleMeetingForm" method="post" enctype="multipart/form-data" onsubmit="event.preventDefault();">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Meeting Type</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-diagram-3"></i></span>
+                                    <select class="form-select" aria-label="Select Meeting Type">
+                                        <option selected>-- Select Meeting Type --</option>
+                                        <option>Board Meeting</option>
+                                        <option>Brainstorming</option>
+                                        <option>Weekly Standup</option>
+                                        <option>Client Review</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Department</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-buildings"></i></span>
+                                    <select class="form-select" aria-label="Select Department">
+                                        <option selected>-- Select Department --</option>
+                                        <option>Customer Service</option>
+                                        <option>Marketing</option>
+                                        <option>Human Resources</option>
+                                        <option>Finance</option>
+                                        <option>IT</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Venue</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                                    <select class="form-select" aria-label="Select Venue">
+                                        <option selected>-- Select Venue --</option>
+                                        <option>Conference Room A</option>
+                                        <option>Conference Room B</option>
+                                        <option>Auditorium</option>
+                                        <option>Zoom / Virtual</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Meeting Date &amp; Time</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+                                    <input type="datetime-local" class="form-control" placeholder="Select date &amp; time" />
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Meeting Description</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-pencil-square"></i></span>
+                                    <textarea class="form-control" rows="4" placeholder="Enter meeting description and agenda"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Meeting Document (Optional)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-file-earmark-arrow-up"></i></span>
+                                    <input type="file" class="form-control" accept=".pdf,.doc,.docx,.txt" />
+                                </div>
+                                <small class="text-muted">Upload meeting agenda, minutes, or related documents (PDF, DOC, DOCX, TXT - Max 5MB)</small>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <a href="/AllMeeting/AllMeeting" class="btn btn-link"><i class="bi bi-arrow-left"></i> Back to Meetings</a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-circle"></i> Schedule Meeting
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

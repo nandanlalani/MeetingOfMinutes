@@ -1,0 +1,438 @@
+@{
+    ViewData["Title"] = "View Meeting Attendance";
+    var meetingId = ViewBag.MeetingId ?? 1;
+}
+
+<div class="pagetitle">
+    <h1>Meeting Attendance Details</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="@Url.Action("Dashboard", "Home")">Home</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Attendance", "Attendance")">Attendance</a></li>
+            <li class="breadcrumb-item active">View Attendance</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            
+            <!-- Meeting Information Card -->
+            <div class="card mb-4">
+                <div class="card-header d-flex align-items-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <i class="bi bi-info-circle me-2"></i>
+                    <h5 class="mb-0">Meeting Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="meeting-icon bg-primary text-white me-3">
+                                    <i class="bi bi-calendar-event"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Q4 Planning Meeting</h5>
+                                    <small class="text-muted">Meeting ID: #MTG001</small>
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <strong>Date:</strong> Jan 15, 2026
+                                </div>
+                                <div class="col-6">
+                                    <strong>Time:</strong> 2:00 PM - 4:00 PM
+                                </div>
+                                <div class="col-6">
+                                    <strong>Department:</strong> <span class="badge bg-info">Marketing</span>
+                                </div>
+                                <div class="col-6">
+                                    <strong>Venue:</strong> Conference Room A
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="avatar-circle bg-primary text-white me-3">
+                                    J
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">John Smith</h6>
+                                    <small class="text-muted">Meeting Admin - Project Manager</small>
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-12">
+                                    <strong>Description:</strong><br>
+                                    <small class="text-muted">Strategic planning session for Q4 objectives and resource allocation.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attendance Summary Cards -->
+            <div class="row g-3 mb-4">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card stats-card" style="background: linear-gradient(135deg, #2eca6a 0%, #1db584 100%);">
+                        <div class="card-body text-white text-center">
+                            <div class="stats-icon mx-auto mb-2">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </div>
+                            <h3 class="mb-0 fw-bold">10</h3>
+                            <p class="mb-0 opacity-75">ATTENDED</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card stats-card" style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">
+                        <div class="card-body text-white text-center">
+                            <div class="stats-icon mx-auto mb-2">
+                                <i class="bi bi-x-circle-fill"></i>
+                            </div>
+                            <h3 class="mb-0 fw-bold">2</h3>
+                            <p class="mb-0 opacity-75">ABSENT</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card stats-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="card-body text-white text-center">
+                            <div class="stats-icon mx-auto mb-2">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <h3 class="mb-0 fw-bold">12</h3>
+                            <p class="mb-0 opacity-75">TOTAL INVITED</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card stats-card" style="background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);">
+                        <div class="card-body text-white text-center">
+                            <div class="stats-icon mx-auto mb-2">
+                                <i class="bi bi-percent"></i>
+                            </div>
+                            <h3 class="mb-0 fw-bold">83%</h3>
+                            <p class="mb-0 opacity-75">ATTENDANCE RATE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Attendance List -->
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-between" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-clipboard-check me-2"></i>
+                        <h5 class="mb-0">Detailed Attendance List</h5>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-light btn-sm">
+                            <i class="bi bi-download me-1"></i> Export
+                        </button>
+                        <a href="@Url.Action("Attendance", "Attendance")" class="btn btn-outline-light btn-sm">
+                            <i class="bi bi-arrow-left me-1"></i> Back
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Staff Member</th>
+                                    <th>Department</th>
+                                    <th>Role</th>
+                                    <th>Email</th>
+                                    <th>Attendance Status</th>
+                                    <th>Check-in Time</th>
+                                    <th>Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-success">
+                                    <td>1</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle bg-success text-white me-2">
+                                                A
+                                            </div>
+                                            <div>
+                                                <span class="fw-medium">Amanda White</span><br>
+                                                <small class="text-muted">Staff ID: #STF014</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-info">Marketing</span></td>
+                                    <td>Marketing Specialist</td>
+                                    <td>amanda.white@company.com</td>
+                                    <td>
+                                        <span class="badge bg-success">
+                                            <i class="bi bi-check-circle me-1"></i>Present
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <strong>1:58 PM</strong><br>
+                                        <small class="text-success">On time</small>
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">Active participant</small>
+                                    </td>
+                                </tr>
+                                <tr class="table-success">
+                                    <td>2</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle bg-primary text-white me-2">
+                                                J
+                                            </div>
+                                            <div>
+                                                <span class="fw-medium">John Smith</span><br>
+                                                <small class="text-muted">Staff ID: #STF001</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-info">Marketing</span></td>
+                                    <td>Project Manager</td>
+                                    <td>john.smith@company.com</td>
+                                    <td>
+                                        <span class="badge bg-success">
+                                            <i class="bi bi-check-circle me-1"></i>Present
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <strong>1:55 PM</strong><br>
+                                        <small class="text-success">Early</small>
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">Meeting organizer</small>
+                                    </td>
+                                </tr>
+                                <tr class="table-success">
+                                    <td>3</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle bg-warning text-white me-2">
+                                                M
+                                            </div>
+                                            <div>
+                                                <span class="fw-medium">Michael Chen</span><br>
+                                                <small class="text-muted">Staff ID: #STF007</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-primary">Development</span></td>
+                                    <td>Lead Developer</td>
+                                    <td>michael.chen@company.com</td>
+                                    <td>
+                                        <span class="badge bg-success">
+                                            <i class="bi bi-check-circle me-1"></i>Present
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <strong>2:05 PM</strong><br>
+                                        <small class="text-warning">5 min late</small>
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">Technical consultant</small>
+                                    </td>
+                                </tr>
+                                <tr class="table-danger">
+                                    <td>4</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle bg-danger text-white me-2">
+                                                S
+                                            </div>
+                                            <div>
+                                                <span class="fw-medium">Sarah Johnson</span><br>
+                                                <small class="text-muted">Staff ID: #STF003</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-primary">Development</span></td>
+                                    <td>Scrum Master</td>
+                                    <td>sarah.johnson@company.com</td>
+                                    <td>
+                                        <span class="badge bg-danger">
+                                            <i class="bi bi-x-circle me-1"></i>Absent
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="text-muted">-</span>
+                                    </td>
+                                    <td>
+                                        <small class="text-danger">Sick leave</small>
+                                    </td>
+                                </tr>
+                                <tr class="table-success">
+                                    <td>5</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle bg-info text-white me-2">
+                                                L
+                                            </div>
+                                            <div>
+                                                <span class="fw-medium">Lisa Rodriguez</span><br>
+                                                <small class="text-muted">Staff ID: #STF009</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-warning">HR</span></td>
+                                    <td>HR Director</td>
+                                    <td>lisa.rodriguez@company.com</td>
+                                    <td>
+                                        <span class="badge bg-success">
+                                            <i class="bi bi-check-circle me-1"></i>Present
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <strong>2:00 PM</strong><br>
+                                        <small class="text-success">On time</small>
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">HR representative</small>
+                                    </td>
+                                </tr>
+                                <tr class="table-success">
+                                    <td>6</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle bg-success text-white me-2">
+                                                D
+                                            </div>
+                                            <div>
+                                                <span class="fw-medium">David Thompson</span><br>
+                                                <small class="text-muted">Staff ID: #STF011</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-secondary">Sales</span></td>
+                                    <td>Sales Director</td>
+                                    <td>david.thompson@company.com</td>
+                                    <td>
+                                        <span class="badge bg-success">
+                                            <i class="bi bi-check-circle me-1"></i>Present
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <strong>1:57 PM</strong><br>
+                                        <small class="text-success">Early</small>
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">Sales input</small>
+                                    </td>
+                                </tr>
+                                <tr class="table-danger">
+                                    <td>7</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle bg-danger text-white me-2">
+                                                R
+                                            </div>
+                                            <div>
+                                                <span class="fw-medium">Robert Wilson</span><br>
+                                                <small class="text-muted">Staff ID: #STF005</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-success">Finance</span></td>
+                                    <td>Finance Director</td>
+                                    <td>robert.wilson@company.com</td>
+                                    <td>
+                                        <span class="badge bg-danger">
+                                            <i class="bi bi-x-circle me-1"></i>Absent
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="text-muted">-</span>
+                                    </td>
+                                    <td>
+                                        <small class="text-danger">Business travel</small>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+.stats-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-2px);
+}
+
+.stats-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.meeting-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.avatar-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.table th {
+    font-weight: 600;
+    color: #6c757d;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table td {
+    vertical-align: middle;
+    padding: 12px 8px;
+}
+
+.table-success {
+    background-color: rgba(25, 135, 84, 0.05);
+}
+
+.table-danger {
+    background-color: rgba(220, 53, 69, 0.05);
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    border-bottom: none;
+}
+</style>

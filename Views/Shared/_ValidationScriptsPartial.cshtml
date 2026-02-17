@@ -1,0 +1,30 @@
+<style>
+    .input-validation-error { border-color: #dc3545 !important; }
+    .input-validation-error:focus { box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important; }
+    .field-validation-error { display: block; }
+</style>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(function () {
+        // Configure client-side validation: show errors on submit and scroll to first error
+        $('form[novalidate]').each(function () {
+            var $form = $(this);
+            var validator = $form.data('validator');
+            if (validator) {
+                validator.settings.invalidHandler = function (event, validator) {
+                    var errors = validator.errorList;
+                    if (errors.length > 0) {
+                        var firstError = errors[0];
+                        var $firstInvalid = $(firstError.element);
+                        $('html, body').animate({
+                            scrollTop: $firstInvalid.offset().top - 100
+                        }, 300);
+                        $form.find('.alert-danger').addClass('show').css('display', 'block');
+                    }
+                };
+            }
+        });
+    });
+</script>

@@ -1,0 +1,379 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<section class="dashboard py-4">
+    <div class="container-fluid px-4">
+        <div class="row">
+            <div class="col-12">
+
+                <!-- Page Header -->
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+                    <div>
+                        <h4 class="mb-1 fw-semibold">Dashboard</h4>
+                        <p class="text-muted mb-0">Meeting management overview and analytics</p>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-primary px-3">
+                            <i class="bi bi-arrow-clockwise me-2"></i> Refresh
+                        </button>
+                        <button class="btn btn-success px-3">
+                            <i class="bi bi-download me-2"></i> Export Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards Row -->
+                <div class="row g-4 mb-5">
+
+                    <!-- Total Meetings Card -->
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden"
+                             style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <div class="card-body text-white p-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-25"
+                                         style="width:56px;height:56px;">
+                                        <i class="bi bi-calendar-event fs-4"></i>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <div class="display-6 fw-bold lh-1 mb-1">14</div>
+                                        <div class="text-uppercase opacity-75 small fw-semibold">Total Meetings</div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-1">
+                                    <small class="opacity-75 d-flex align-items-center gap-2">
+                                        <i class="bi bi-arrow-up"></i>
+                                        <span>12% from last month</span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Meetings Card -->
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden"
+                             style="background: linear-gradient(135deg, #2eca6a 0%, #1db584 100%);">
+                            <div class="card-body text-white p-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-25"
+                                         style="width:56px;height:56px;">
+                                        <i class="bi bi-calendar-plus fs-4"></i>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <div class="display-6 fw-bold lh-1 mb-1">1</div>
+                                        <div class="text-uppercase opacity-75 small fw-semibold">Upcoming</div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-1">
+                                    <small class="opacity-75 d-flex align-items-center gap-2">
+                                        <i class="bi bi-arrow-up"></i>
+                                        <span>8% from last week</span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Completed Meetings Card -->
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden"
+                             style="background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);">
+                            <div class="card-body text-white p-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-25"
+                                         style="width:56px;height:56px;">
+                                        <i class="bi bi-check-circle fs-4"></i>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <div class="display-6 fw-bold lh-1 mb-1">8</div>
+                                        <div class="text-uppercase opacity-75 small fw-semibold">Completed</div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-1">
+                                    <small class="opacity-75 d-flex align-items-center gap-2">
+                                        <i class="bi bi-arrow-up"></i>
+                                        <span>15% completion rate</span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cancelled Meetings Card -->
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden"
+                             style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">
+                            <div class="card-body text-white p-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-25"
+                                         style="width:56px;height:56px;">
+                                        <i class="bi bi-x-circle fs-4"></i>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <div class="display-6 fw-bold lh-1 mb-1">5</div>
+                                        <div class="text-uppercase opacity-75 small fw-semibold">Cancelled</div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-1">
+                                    <small class="opacity-75 d-flex align-items-center gap-2">
+                                        <i class="bi bi-arrow-down"></i>
+                                        <span>3% cancellation rate</span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Charts Row -->
+                <div class="row g-4">
+
+                    <!-- Meetings by Type Chart -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm rounded-4 h-100">
+                            <div class="card-header bg-white border-bottom px-4 py-3 rounded-top-4 d-flex align-items-center justify-content-between">
+                                <h5 class="mb-0 fw-semibold">
+                                    <i class="bi bi-pie-chart me-2"></i>
+                                    Meetings by Type
+                                </h5>
+
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-outline-secondary px-3" type="button" data-bs-toggle="dropdown">
+                                        <i class="bi bi-three-dots"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">This Week</a></li>
+                                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card-body px-4 py-4">
+                                <div id="meetingTypeChart" style="min-height: 320px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Meetings by Department Chart -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm rounded-4 h-100">
+                            <div class="card-header bg-white border-bottom px-4 py-3 rounded-top-4 d-flex align-items-center justify-content-between">
+                                <h5 class="mb-0 fw-semibold">
+                                    <i class="bi bi-bar-chart me-2"></i>
+                                    Meetings by Department
+                                </h5>
+
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-outline-secondary px-3" type="button" data-bs-toggle="dropdown">
+                                        <i class="bi bi-three-dots"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">This Week</a></li>
+                                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card-body px-4 py-4">
+                                <div id="departmentChart" style="min-height: 320px;"></div>
+
+                                <div class="mt-3">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="d-inline-block rounded-1"
+                                              style="width:12px;height:12px;background-color:#4154f1;"></span>
+                                        <span class="small text-muted">Number of Meetings</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Recent Meetings Table -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm rounded-4">
+                            <div class="card-header bg-white border-bottom px-4 py-3 rounded-top-4 d-flex align-items-center justify-content-between">
+                                <h5 class="mb-0 fw-semibold">
+                                    <i class="bi bi-clock-history me-2"></i>
+                                    Recent Meetings
+                                </h5>
+                                <a href="@Url.Action("AllMeeting", "AllMeeting")" class="btn btn-sm btn-primary px-3">
+                                    View All <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th class="px-4 py-3 text-muted fw-semibold">Meeting</th>
+                                                <th class="py-3 text-muted fw-semibold">Department</th>
+                                                <th class="py-3 text-muted fw-semibold">Type</th>
+                                                <th class="py-3 text-muted fw-semibold">Date & Time</th>
+                                                <th class="py-3 text-muted fw-semibold">Venue</th>
+                                                <th class="py-3 text-muted fw-semibold">Attendees</th>
+                                                <th class="py-3 text-muted fw-semibold">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="px-4 py-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="d-flex align-items-center justify-content-center rounded-3 bg-primary text-white me-3"
+                                                             style="width:40px;height:40px;">
+                                                            <i class="bi bi-people"></i>
+                                                        </div>
+                                                        <div>
+                                                            <div class="fw-semibold">Q4 Planning Meeting</div>
+                                                            <small class="text-muted">Strategic planning session</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge bg-info">Marketing</span></td>
+                                                <td><span class="badge bg-secondary">Planning</span></td>
+                                                <td>
+                                                    <div class="fw-semibold">Jan 15, 2026</div>
+                                                    <small class="text-muted">2:00 PM - 4:00 PM</small>
+                                                </td>
+                                                <td>Conference Room A</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="badge bg-primary rounded-pill me-2">8</span>
+                                                        <small class="text-muted">attendees</small>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="px-4 py-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="d-flex align-items-center justify-content-center rounded-3 bg-success text-white me-3"
+                                                             style="width:40px;height:40px;">
+                                                            <i class="bi bi-check-circle"></i>
+                                                        </div>
+                                                        <div>
+                                                            <div class="fw-semibold">Weekly Standup</div>
+                                                            <small class="text-muted">Development team sync</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge bg-primary">Development</span></td>
+                                                <td><span class="badge bg-secondary">Standup</span></td>
+                                                <td>
+                                                    <div class="fw-semibold">Jan 10, 2026</div>
+                                                    <small class="text-muted">9:00 AM - 9:30 AM</small>
+                                                </td>
+                                                <td>Meeting Room B</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="badge bg-primary rounded-pill me-2">12</span>
+                                                        <small class="text-muted">attendees</small>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge bg-success">Completed</span></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="px-4 py-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="d-flex align-items-center justify-content-center rounded-3 bg-warning text-white me-3"
+                                                             style="width:40px;height:40px;">
+                                                            <i class="bi bi-exclamation-triangle"></i>
+                                                        </div>
+                                                        <div>
+                                                            <div class="fw-semibold">Budget Review</div>
+                                                            <small class="text-muted">Financial planning meeting</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge bg-success">Finance</span></td>
+                                                <td><span class="badge bg-secondary">Review</span></td>
+                                                <td>
+                                                    <div class="fw-semibold">Jan 8, 2026</div>
+                                                    <small class="text-muted">10:00 AM - 12:00 PM</small>
+                                                </td>
+                                                <td>Executive Boardroom</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="badge bg-primary rounded-pill me-2">6</span>
+                                                        <small class="text-muted">attendees</small>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge bg-danger">Cancelled</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // Meetings by Type Donut Chart
+            const meetingTypeChart = new ApexCharts(document.querySelector("#meetingTypeChart"), {
+                series: [35, 25, 20, 15, 5],
+                chart: { type: 'donut', height: 320 },
+                labels: ['Planning', 'Standup', 'Review', 'Training', 'Other'],
+                colors: ['#4154f1', '#2eca6a', '#ff771d', '#f39c12', '#e74c3c'],
+                legend: { position: 'bottom', horizontalAlign: 'center' },
+                plotOptions: { pie: { donut: { size: '60%' } } },
+                dataLabels: {
+                    enabled: true,
+                    formatter: function (val) { return Math.round(val) + "%" }
+                },
+                tooltip: {
+                    y: { formatter: function (val) { return val + " meetings" } }
+                }
+            });
+            meetingTypeChart.render();
+
+            // Meetings by Department Bar Chart
+            const departmentChart = new ApexCharts(document.querySelector("#departmentChart"), {
+                series: [{ name: 'Number of Meetings', data: [8, 6, 4, 3, 2, 1] }],
+                chart: { type: 'bar', height: 320, toolbar: { show: false } },
+                colors: ['#4154f1'],
+                plotOptions: {
+                    bar: { horizontal: true, borderRadius: 4, dataLabels: { position: 'top' } }
+                },
+                dataLabels: {
+                    enabled: true,
+                    offsetX: -6,
+                    style: { fontSize: '12px', colors: ['#fff'] }
+                },
+                xaxis: { categories: ['Marketing', 'Development', 'Finance', 'HR', 'Operations', 'Sales'] },
+                yaxis: { title: { text: 'Departments' } },
+                grid: { borderColor: '#f1f1f1' }
+            });
+            departmentChart.render();
+
+        });
+    </script>
+}
